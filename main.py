@@ -410,7 +410,6 @@ class MyWidget(QMainWindow, Ui_MainWindow):
             msg.exec_()
 
 
-
 class TextWidget(QMainWindow, TextWindow):
     def __init__(self):
         super().__init__()
