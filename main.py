@@ -408,8 +408,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
             msg.setText("Недостаточно товаров для сравнения")
             msg.setIcon(QMessageBox.Critical)
             msg.exec_()
-        gse = open('compare.txt', "w")
-        gse.close()
+
 
 
 class TextWidget(QMainWindow, TextWindow):
@@ -465,6 +464,9 @@ class OpenWidget(QMainWindow, OpenWindow):
         self.compare.clicked.connect(self.compare_event)
 
     def compare_event(self):
+        if len(sp) == 0:
+            gse = open('compare.txt', "w")
+            gse.close()
         if len(sp) < 2:
             sp.add(self.nn)
         if len(sp) == 2:
