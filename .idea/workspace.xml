@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c79f4dbe-3c7d-4430-a6d9-b7a9776103a1" name="Changes" comment="xm">
+    <list default="true" id="c79f4dbe-3c7d-4430-a6d9-b7a9776103a1" name="Changes" comment="txt clear">
+      <change afterPath="$PROJECT_DIR$/abrams.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commander.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compare.txt" beforeDir="false" afterPath="$PROJECT_DIR$/compare.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +125,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668447082852</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="txt clear">
+      <created>1668448508717</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668448508717</updated>
+    </task>
+    <task id="LOCAL-00009" summary="txt clear">
+      <created>1668448671366</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668448671366</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,6 +164,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="asd" />
     <MESSAGE value="xm" />
-    <option name="LAST_COMMIT_MESSAGE" value="xm" />
+    <MESSAGE value="txt clear" />
+    <option name="LAST_COMMIT_MESSAGE" value="txt clear" />
   </component>
 </project>

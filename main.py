@@ -1,13 +1,13 @@
 import sys
 import sqlite3
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QFontDatabase
 from PyQt5.QtCore import Qt
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 sp = set()
 msxp = open("compare.txt", 'w')
 msxp.close()
-global x
+x = 0
 
 
 class Ui_MainWindow(object):
@@ -68,9 +68,8 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 5, 0, 1, 2)
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        font = QtGui.QFont()
-        font.setFamily("Franklin Gothic Book")
-        self.label_2.setFont(font)
+        self.label_2.setFont(QtGui.QFont("Roboto", 10))
+        self.label_2.adjustSize()
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 0, 3, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -115,6 +114,8 @@ class OpenWindow(object):
         self.gridLayout_2.addWidget(self.diameter, 4, 2, 1, 1)
         self.name = QtWidgets.QLabel(self.centralwidget)
         self.name.setAlignment(QtCore.Qt.AlignCenter)
+        self.name.setFont(QtGui.QFont("Roboto", 10, QtGui.QFont.Bold))
+        self.name.adjustSize()
         self.name.setObjectName("name")
         self.gridLayout_2.addWidget(self.name, 1, 2, 1, 1)
         self.weight = QtWidgets.QLabel(self.centralwidget)
@@ -194,7 +195,9 @@ class TextWindow(object):
         self.gridLayout.addWidget(self.pwrres_2, 4, 2, 1, 1)
         self.name_2 = QtWidgets.QLabel(self.centralwidget)
         self.name_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.name_2.setFont(QtGui.QFont("Roboto", 8, QtGui.QFont.Bold))
         self.name_2.setObjectName("name_2")
+        self.name_2.adjustSize()
         self.gridLayout.addWidget(self.name_2, 1, 2, 1, 1)
         self.pwrres_1 = QtWidgets.QLabel(self.centralwidget)
         self.pwrres_1.setAlignment(QtCore.Qt.AlignCenter)
@@ -254,7 +257,9 @@ class TextWindow(object):
         self.gridLayout.addWidget(self.label_5, 2, 1, 1, 1)
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setFont(QtGui.QFont("Roboto", 11))
         self.label.setObjectName("label")
+        self.label.adjustSize()
         self.gridLayout.addWidget(self.label, 0, 0, 1, 3)
         self.capacity_2 = QtWidgets.QLabel(self.centralwidget)
         self.capacity_2.setAlignment(QtCore.Qt.AlignCenter)
@@ -286,7 +291,9 @@ class TextWindow(object):
         self.gridLayout.addWidget(self.label_28, 7, 1, 1, 1)
         self.name_1 = QtWidgets.QLabel(self.centralwidget)
         self.name_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.name_1.setFont(QtGui.QFont("Roboto", 8, QtGui.QFont.Bold))
         self.name_1.setObjectName("name_1")
+        self.name_1.adjustSize()
         self.gridLayout.addWidget(self.name_1, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -395,13 +402,15 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         self.ec.setFixedSize(700, 540)
 
     def compare(self):
+        global mark
         gse = open('compare.txt', "r")
         nt = gse.readlines()
         gse.close()
         if len(nt) != 0:
             self.ev = TextWidget()
             self.ev.show()
-            self.ev.setFixedSize(520, 350)
+            self.ev.setFixedSize(590, 350)
+            sp.clear()
         else:
             msg = QMessageBox()
             msg.setWindowTitle("Ошибка")
@@ -417,13 +426,13 @@ class TextWidget(QMainWindow, TextWindow):
         gtg = open('compare.txt', 'r')
         gtd = gtg.readlines()
         gtg.close()
-        gtd[0] = ''.join(gtd[0].split('\n')).split('  ')
+        gtd[0] = ''.join(gtd[0].split('\n')).split(' vs ')
         for u in range(1, len(gtd)):
             gtd[u] = ''.join(gtd[u].split('\n')).split()
         self.weight_2.setText(gtd[7][2])
         self.susp_1.setText(gtd[8][0])
         self.pwrres_2.setText(gtd[3][2])
-        self.name_2.setText(gtd[0][2])
+        self.name_2.setText(gtd[0][1])
         self.pwrres_1.setText(gtd[3][0])
         self.maxspeed_2.setText(gtd[5][2])
         self.price_1.setText(gtd[1][0])
@@ -476,14 +485,14 @@ class OpenWidget(QMainWindow, OpenWindow):
             gsx = list(cur.execute(f"SELECT * FROM eucs WHERE name=?", (gs[0],)).fetchall())
             gsxr = list(cur.execute(f"SELECT * FROM eucs WHERE name=?", (gs[1],)).fetchall())
             con.close()
-            msx.write(gsx[0][8] + '    ' + gsxr[0][8] + '\n')
-            msx.write(str(gsx[0][3]) + ' vs ' + str(gsxr[0][3]) + '\n')
-            msx.write(str(gsx[0][7]) + ' vs ' + str(gsxr[0][7]) + '\n')
-            msx.write(str(gsx[0][4]) + ' vs ' + str(gsxr[0][4]) + '\n')
-            msx.write(str(gsx[0][1]) + ' vs ' + str(gsxr[0][1]) + '\n')
-            msx.write(str(gsx[0][6]) + ' vs ' + str(gsxr[0][6]) + '\n')
-            msx.write(str(gsx[0][2]) + ' vs ' + str(gsxr[0][2]) + '\n')
-            msx.write(str(gsx[0][5]) + ' vs ' + str(gsxr[0][5]) + '\n')
+            msx.write(gsx[0][8] + ' vs ' + gsxr[0][8] + '\n')
+            msx.write(str(gsx[0][3]) + ' vs ' + str(gsxr[0][3]) + ' -Цена' + '\n')
+            msx.write(str(gsx[0][7]) + ' vs ' + str(gsxr[0][7]) + ' -Ёмкость аккумулятора' + '\n')
+            msx.write(str(gsx[0][4]) + ' vs ' + str(gsxr[0][4]) + ' -Запас хода' + '\n')
+            msx.write(str(gsx[0][1]) + ' vs ' + str(gsxr[0][1]) + ' -Диаметр' + '\n')
+            msx.write(str(gsx[0][6]) + ' vs ' + str(gsxr[0][6]) + ' -Макс. скорость' + '\n')
+            msx.write(str(gsx[0][2]) + ' vs ' + str(gsxr[0][2]) + ' -Мощность' + '\n')
+            msx.write(str(gsx[0][5]) + ' vs ' + str(gsxr[0][5]) + ' -Вес' + '\n')
             if gsx[0][10] == 1:
                 r = 'Да'
             else:
@@ -492,9 +501,8 @@ class OpenWidget(QMainWindow, OpenWindow):
                 i = 'Да'
             else:
                 i = 'Нет'
-            msx.write(r + ' vs ' + i)
+            msx.write(r + ' vs ' + i + ' -Наличие подвески')
             msx.close()
-            sp.clear()
 
 
 StyleSheet = """QMainWindow {background-color: rgb(220, 210, 150)}"""
