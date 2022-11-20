@@ -39,9 +39,11 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.maxpwrres, 4, 4, 1, 2)
         self.selectbtn = QtWidgets.QPushButton(self.centralwidget)
         self.selectbtn.setObjectName("pushButton")
+        self.selectbtn.setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.gridLayout.addWidget(self.selectbtn, 5, 4, 2, 1)
         self.srbtn = QtWidgets.QPushButton(self.centralwidget)
         self.srbtn.setObjectName("pushButton")
+        self.srbtn.setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.gridLayout.addWidget(self.srbtn, 5, 5, 2, 1)
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_6.setObjectName("label_6")
@@ -72,6 +74,10 @@ class Ui_MainWindow(object):
         self.label_2.adjustSize()
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 0, 3, 1, 1)
+        self.guidebtn = QtWidgets.QPushButton(self.centralwidget)
+        self.guidebtn.setObjectName("pushButton")
+        self.guidebtn.setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.gridLayout.addWidget(self.guidebtn, 8, 5, 2, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 754, 26))
@@ -95,6 +101,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Цена от:"))
         self.label.setText(_translate("MainWindow", "Бренд"))
         self.label_2.setText(_translate("MainWindow", "Фильтры:"))
+        self.guidebtn.setText(_translate('MainWindow', 'Гайд по выбору'))
 
 
 class OpenWindow(object):
@@ -141,6 +148,7 @@ class OpenWindow(object):
         self.gridLayout_2.addWidget(self.price, 2, 2, 1, 1)
         self.compare = QtWidgets.QPushButton(self.centralwidget)
         self.compare.setObjectName("pushButton")
+        self.compare.setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.gridLayout_2.addWidget(self.compare, 9, 2, 1, 1)
         self.photo = QtWidgets.QLabel(self.centralwidget)
         self.photo.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
@@ -310,33 +318,45 @@ class TextWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Сравнение"))
-        self.weight_2.setText(_translate("MainWindow", "TextLabel"))
-        self.susp_1.setText(_translate("MainWindow", "TextLabel"))
-        self.pwrres_2.setText(_translate("MainWindow", "TextLabel"))
-        self.name_2.setText(_translate("MainWindow", "TextLabel"))
-        self.pwrres_1.setText(_translate("MainWindow", "TextLabel"))
-        self.maxspeed_2.setText(_translate("MainWindow", "TextLabel"))
-        self.price_1.setText(_translate("MainWindow", "TextLabel"))
-        self.susp_2.setText(_translate("MainWindow", "TextLabel"))
         self.label_24.setText(_translate("MainWindow", "Запас хода, км"))
         self.label_27.setText(_translate("MainWindow", "Макс. скорость, км/ч"))
-        self.diameter_2.setText(_translate("MainWindow", "TextLabel"))
         self.label_18.setText(_translate("MainWindow", "Наличие подвески"))
-        self.weight_1.setText(_translate("MainWindow", "TextLabel"))
-        self.price_2.setText(_translate("MainWindow", "TextLabel"))
-        self.power_1.setText(_translate("MainWindow", "TextLabel"))
-        self.maxspeed_1.setText(_translate("MainWindow", "TextLabel"))
         self.label_8.setText(_translate("MainWindow", "Ёмкость аккумулятора, Втч"))
         self.label_5.setText(_translate("MainWindow", "Цена, ₽"))
         self.label.setText(_translate("MainWindow", "Сравнение"))
-        self.capacity_2.setText(_translate("MainWindow", "TextLabel"))
-        self.capacity_1.setText(_translate("MainWindow", "TextLabel"))
         self.label_25.setText(_translate("MainWindow", "Диаметр"))
         self.label_16.setText(_translate("MainWindow", "Вес, кг"))
         self.diameter_1.setText(_translate("MainWindow", "TextLabel"))
-        self.power_2.setText(_translate("MainWindow", "TextLabel"))
         self.label_28.setText(_translate("MainWindow", "Мощность, Вт"))
-        self.name_1.setText(_translate("MainWindow", "TextLabel"))
+
+
+class GuideWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(595, 392)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit.setStyleSheet("font: 14pt \"Microsoft JhengHei UI\";")
+        self.plainTextEdit.setReadOnly(True)
+        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.gridLayout_2.addWidget(self.plainTextEdit, 0, 0, 1, 1)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 595, 26))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Гайд"))
 
 
 class MyWidget(QMainWindow, Ui_MainWindow):
@@ -345,6 +365,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.selectbtn.clicked.connect(self.bpress)
         self.srbtn.clicked.connect(self.compare)
+        self.guidebtn.clicked.connect(self.guide)
         self.listWidget.itemClicked.connect(self.euc)
 
     def keyPressEvent(self, event):
@@ -357,6 +378,20 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         h = self.maxprice.text()
         y = self.minpwrres.text()
         j = self.maxpwrres.text()
+        if d != '' and not d.isdigit() or h != '' and not h.isdigit() or \
+                y != '' and not y.isdigit() or j != '' and not j.isdigit():
+            mesg = QMessageBox()
+            mesg.setWindowTitle("Ошибка")
+            mesg.setText("Вводите числа в поля ввода.")
+            mesg.setIcon(QMessageBox.Critical)
+            mesg.exec_()
+            self.minprice.setText('')
+            self.maxprice.setText('')
+            self.minpwrres.setText('')
+            self.maxpwrres.setText('')
+            sd = False
+        else:
+            sd = True
         if d != '' and d.isdigit():
             d = int(self.minprice.text())
         else:
@@ -385,15 +420,16 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         else:
             s = 'Inmotion'
             b = 'Ninebot'
-        con = sqlite3.connect("euc_copy.sqlite")
-        cur = con.cursor()
-        names = cur.execute(f"SELECT name FROM eucs WHERE price BETWEEN ? AND ? AND pwrres BETWEEN ? AND ? "
-                            f"AND diameter BETWEEN ? AND ? AND brand_id BETWEEN (SELECT id FROM brands WHERE "
-                            f"brand=?) AND (SELECT id FROM brands WHERE brand=?)",
-                            (d, h, y, j, k, n, s, b)).fetchall()
-        con.close()
-        for item in names:
-            self.listWidget.addItem(item[0])
+        if sd:
+            con = sqlite3.connect("euc_copy.sqlite")
+            cur = con.cursor()
+            names = cur.execute(f"SELECT name FROM eucs WHERE price BETWEEN ? AND ? AND pwrres BETWEEN ? AND ? "
+                                f"AND diameter BETWEEN ? AND ? AND brand_id BETWEEN (SELECT id FROM brands WHERE "
+                                f"brand=?) AND (SELECT id FROM brands WHERE brand=?)",
+                                (d, h, y, j, k, n, s, b)).fetchall()
+            con.close()
+            for item in names:
+                self.listWidget.addItem(item[0])
 
     def euc(self, item):
         global x
@@ -418,6 +454,16 @@ class MyWidget(QMainWindow, Ui_MainWindow):
             msg.setText("Недостаточно товаров для сравнения")
             msg.setIcon(QMessageBox.Critical)
             msg.exec_()
+
+    def guide(self):
+        self.ecx = GuideWidget()
+        self.ecx.show()
+
+
+class GuideWidget(QMainWindow, GuideWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
 
 
 class TextWidget(QMainWindow, TextWindow):
