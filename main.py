@@ -1,12 +1,12 @@
 import sys
 import sqlite3
-from PyQt5.QtGui import QPixmap, QFontDatabase
 from PyQt5.QtCore import Qt
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap, QFontDatabase
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-sp = set()
 msxp = open("compare.txt", 'w')
 msxp.close()
+sp = set()
 x = 0
 
 
@@ -82,6 +82,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Моноколёса"))
