@@ -170,16 +170,7 @@ class OpenWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Товар"))
-        self.maxspeed.setText(_translate("MainWindow", "TextLabel"))
-        self.diameter.setText(_translate("MainWindow", "TextLabel"))
-        self.name.setText(_translate("MainWindow", "TextLabel"))
-        self.weight.setText(_translate("MainWindow", "TextLabel"))
-        self.power.setText(_translate("MainWindow", "TextLabel"))
-        self.pwrres.setText(_translate("MainWindow", "TextLabel"))
-        self.capacity.setText(_translate("MainWindow", "TextLabel"))
-        self.price.setText(_translate("MainWindow", "TextLabel"))
         self.compare.setText(_translate("MainWindow", "Добавить к сравнению"))
-        self.photo.setText(_translate("MainWindow", "TextLabel"))
 
 
 class TextWindow(object):
@@ -339,7 +330,7 @@ class GuideWindow(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setStyleSheet("font: 14pt \"Microsoft JhengHei UI\";")
+        self.plainTextEdit.setStyleSheet("font: 10pt \"Microsoft JhengHei UI\";")
         self.plainTextEdit.setReadOnly(True)
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.gridLayout_2.addWidget(self.plainTextEdit, 0, 0, 1, 1)
@@ -464,6 +455,10 @@ class GuideWidget(QMainWindow, GuideWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        with open("guide.txt", 'r', encoding="utf-8") as msp:
+            gd = msp.readlines()
+            for ix in gd:
+                self.plainTextEdit.appendPlainText(''.join(ix.split('\n')))
 
 
 class TextWidget(QMainWindow, TextWindow):
@@ -525,13 +520,13 @@ class OpenWidget(QMainWindow, OpenWindow):
         if len(sp) < 2:
             sp.add(self.nn)
         if len(sp) == 2:
-            msx = open("compare.txt", 'w')
             con = sqlite3.connect("euc_copy.sqlite")
             cur = con.cursor()
             gs = list(sp)
             gsx = list(cur.execute(f"SELECT * FROM eucs WHERE name=?", (gs[0],)).fetchall())
             gsxr = list(cur.execute(f"SELECT * FROM eucs WHERE name=?", (gs[1],)).fetchall())
             con.close()
+            msx = open("compare.txt", 'w')
             msx.write(gsx[0][8] + ' vs ' + gsxr[0][8] + '\n')
             msx.write(str(gsx[0][3]) + ' vs ' + str(gsxr[0][3]) + ' -Цена' + '\n')
             msx.write(str(gsx[0][7]) + ' vs ' + str(gsxr[0][7]) + ' -Ёмкость аккумулятора' + '\n')

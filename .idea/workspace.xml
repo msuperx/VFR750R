@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c79f4dbe-3c7d-4430-a6d9-b7a9776103a1" name="Changes" comment="v3">
+    <list default="true" id="c79f4dbe-3c7d-4430-a6d9-b7a9776103a1" name="Changes" comment="v3+">
+      <change afterPath="$PROJECT_DIR$/guide.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/untitled.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/untitled.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -173,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668953866349</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="v3+">
+      <created>1668963456713</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668963456713</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +209,7 @@
     <MESSAGE value="txt clear" />
     <MESSAGE value="v2" />
     <MESSAGE value="v3" />
-    <option name="LAST_COMMIT_MESSAGE" value="v3" />
+    <MESSAGE value="v3+" />
+    <option name="LAST_COMMIT_MESSAGE" value="v3+" />
   </component>
 </project>
