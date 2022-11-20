@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c79f4dbe-3c7d-4430-a6d9-b7a9776103a1" name="Changes" comment="v3+">
-      <change afterPath="$PROJECT_DIR$/guide.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled.ui" afterDir="false" />
+    <list default="true" id="c79f4dbe-3c7d-4430-a6d9-b7a9776103a1" name="Changes" comment="final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compare.txt" beforeDir="false" afterPath="$PROJECT_DIR$/compare.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668963456713</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="final">
+      <created>1668969998338</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668969998338</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +214,7 @@
     <MESSAGE value="v2" />
     <MESSAGE value="v3" />
     <MESSAGE value="v3+" />
-    <option name="LAST_COMMIT_MESSAGE" value="v3+" />
+    <MESSAGE value="final" />
+    <option name="LAST_COMMIT_MESSAGE" value="final" />
   </component>
 </project>
